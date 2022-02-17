@@ -1,0 +1,196 @@
+.banner {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 150px;
+  border-radius: 10px 10px 0 0;
+
+  .edit {
+    background-color: rgba(0, 0, 0, 0.507);
+    border-radius: 10px 10px 0 0;
+    height: 100%;
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    transition: 0.15s ease-in;
+    justify-content: center;
+
+    i {
+      font-size: 35px;
+      background-color: rgba(255, 255, 255, 0.212);
+      padding: 10px 20px;
+      border-radius: 100%;
+    }
+  }
+
+  &:hover {
+    .edit {
+      opacity: 100 !important;
+      cursor: pointer;
+    }
+  }
+}
+.content {
+  .user-info {
+    background-color: #393947;
+    padding: 20px;
+    border-radius: 0 0 10px 10px;
+
+    .avatar {
+      margin-bottom: 25px;
+
+      display: flex;
+      align-items: center;
+
+      .profile-image {
+        width: 100px;
+        height: 100px;
+        border-radius: 100%;
+        display: inline;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        .edit-pfp {
+          border-radius: 100%;
+          display: flex;
+          align-items: center;
+          cursor: pointer;
+          justify-content: center;
+          height: 100%;
+          opacity: 0;
+          transition: 0.15s ease-in;
+          background-color: rgba(0, 0, 0, 0.507);
+          i {
+            font-size: 20px;
+            background-color: rgba(255, 255, 255, 0.212);
+            padding: 10px 15px;
+            border-radius: 100%;
+          }
+        }
+
+        &:hover {
+          .edit-pfp {
+            opacity: 100;
+          }
+        }
+      }
+
+      .full-name {
+        font-size: 30px;
+        display: inline;
+        margin-left: 10px;
+        font-weight: bold;
+
+        .profession {
+          font-size: 15px;
+          cursor: pointer;
+          transition: 0.5s;
+
+          &:hover {
+            color: #c8c8c8;
+          }
+        }
+      }
+    }
+
+    .bio {
+      background-color: #4f4f5f;
+      padding: 10px;
+      border-radius: 10px;
+      font-size: 18px;
+      transition: 0.5s;
+      cursor: pointer;
+
+      &:hover {
+        color: #c8c8c8;
+      }
+    }
+  }
+
+  .education,
+  .experience,
+  .posts {
+    background-color: #393947;
+    margin-top: 25px;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 20px;
+  }
+
+  .posts {
+    .posts-header {
+      display: flex;
+      align-items: center;
+
+      margin-bottom: 15px;
+
+      button {
+        margin-left: 10px;
+      }
+    }
+  }
+}
+
+.hover-pointer {
+  transition: 0.5s;
+
+  &:hover {
+    color: #c8c8c8;
+    cursor: pointer;
+  }
+}
+
+.edit-profession {
+  display: flex;
+  align-items: center;
+}
+.add-info {
+  background-color: transparent;
+  width: 50%;
+  &:focus {
+    outline: none;
+  }
+}
+
+.cancle-icon {
+  background-color: red;
+  padding: 0 5px;
+  border-radius: 5px;
+  display: inline;
+  align-items: center;
+  margin-left: 5px;
+}
+
+.submit-icon {
+  background-color: green;
+  padding: 0 5px;
+  border-radius: 5px;
+  display: inline;
+  align-items: center;
+  margin-left: 5px;
+}
+
+// Bio
+
+.bio-text {
+  display: inline;
+}
+.edit-pencil {
+  display: inline;
+  margin-left: 10px;
+  background-color: rgba(0, 0, 0, 0.418);
+  padding: 5px 8px;
+  border-radius: 100%;
+}
+
+@media screen and (max-width: 280px) {
+  .profile-image {
+    width: 50px !important;
+    height: 50px !important;
+  }
+  .full-name {
+    font-size: 20px !important;
+  }
+}

@@ -1,0 +1,43 @@
+.upload {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.452);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .upload-input {
+    background-color: #17171d;
+    font-size: 30px;
+    padding: 20px 40px;
+    border-radius: 10px;
+
+    #upload-file {
+      display: none;
+    }
+
+    .upload-lable {
+      @extend .btn !optional;
+    }
+
+    .uploaded-image {
+      width: 250px;
+      border-radius: 10px;
+    }
+  }
+
+  .close-upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 10px;
+    font-size: 40px;
+    transition: 0.5s;
+
+    &:hover {
+      transform: scale(1.5);
+    }
+  }
+}

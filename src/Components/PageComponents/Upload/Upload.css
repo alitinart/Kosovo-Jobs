@@ -1,0 +1,48 @@
+.upload {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.452);
+  z-index: 100;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.upload .upload-input {
+  background-color: #17171d;
+  font-size: 30px;
+  padding: 20px 40px;
+  border-radius: 10px;
+}
+
+.upload .upload-input #upload-file {
+  display: none;
+}
+
+.upload .upload-input .uploaded-image {
+  width: 250px;
+  border-radius: 10px;
+}
+
+.upload .close-upload {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 10px;
+  font-size: 40px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.upload .close-upload:hover {
+  -webkit-transform: scale(1.5);
+          transform: scale(1.5);
+}
+/*# sourceMappingURL=Upload.css.map */

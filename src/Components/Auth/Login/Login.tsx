@@ -50,7 +50,6 @@ export default function Login() {
       email: email,
       password: password,
     };
-    console.log(data);
     axios
       .post("http://localhost:8000/users/login", { data }, {})
       .then((resData) => {

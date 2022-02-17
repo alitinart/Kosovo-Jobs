@@ -1,6 +1,6 @@
 export default interface Post {
   title: string;
   description: string;
-  attachment: File;
+  attachments: File[];
   _id: string;
 }
