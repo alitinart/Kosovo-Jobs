@@ -26,7 +26,7 @@ html {
 
 .btn:hover {
   background-color: #393e4d;
-  transform: scale(1.06);
+  transform: scale(1.015);
 }
 
 .btn-success {
@@ -35,6 +35,13 @@ html {
 
 .btn-success:hover {
   background-color: rgb(2, 156, 2);
+}
+
+.btn-danger {
+  background-color: rgb(194, 55, 55);
+}
+.btn-danger:hover {
+  background-color: rgb(182, 53, 53);
 }
 
 .scale-up {

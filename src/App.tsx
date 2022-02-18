@@ -30,7 +30,7 @@ function App() {
           localStorage.removeItem("currentUser");
           window.location.href = "/auth/login";
         }
-        setUserObject(resData.data);
+        setUserObject(resData.data._doc);
       });
     return () => {};
   }, []);

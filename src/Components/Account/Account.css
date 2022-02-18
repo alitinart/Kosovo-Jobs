@@ -1,9 +1,8 @@
 .banner {
-  background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 150px;
+  height: 300px;
   border-radius: 10px 10px 0 0;
 }
 
@@ -35,6 +34,11 @@
 .banner:hover .edit {
   opacity: 100 !important;
   cursor: pointer;
+}
+
+.close-icon {
+  display: block;
+  text-align: right;
 }
 
 .content .user-info {
@@ -218,6 +222,12 @@
   }
   .full-name {
     font-size: 20px !important;
+  }
+}
+
+@media screen and (max-width: 638px) {
+  .account {
+    margin: 0 25px;
   }
 }
 /*# sourceMappingURL=Account.css.map */

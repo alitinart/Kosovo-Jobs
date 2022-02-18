@@ -13,5 +13,6 @@ export default interface User {
   education: Education[];
   posts: Post[];
   pastExperience: Experience[];
+  socials: { name: string; link: string; icon: string }[];
   _id: string;
 }
