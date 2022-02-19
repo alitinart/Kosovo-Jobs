@@ -5,6 +5,7 @@ import User from "../../models/User.model";
 import "./Account.css";
 import AddEducation from "./AddComponents/AddEducation/AddEducation";
 import AddExperience from "./AddComponents/AddExperience/AddExperience";
+import AddPost from "./AddComponents/AddPost/AddPost";
 import EducationCard from "./Cards/EducationCard/EducationCard";
 import ExperienceCard from "./Cards/ExperienceCard/ExperienceCard";
 import PostCard from "./Cards/PostCard/PostCard";
@@ -19,6 +20,8 @@ export default function Account(props: any) {
   const [userObject, setUserObject] = useState<User>();
   const [bannerImage, setBannerImage] = useState("");
   const [userPfp, setUserPfp] = useState("");
+
+  const [showPostFields, setShowPostFields] = useState(false);
 
   const updateUser = () => {
     axios
@@ -72,6 +75,7 @@ export default function Account(props: any) {
     updateUser();
     return () => {};
   }, []);
+
   return (
     <div className="account lg:pl-20 lg:pr-20 md:pl-10 md:pr-10 sm:pl-5 sm:pr-5">
       {userObject ? (
@@ -80,6 +84,7 @@ export default function Account(props: any) {
             <Avatar
               userObject={userObject}
               currentUser={currentUser}
+              edit={true}
               updateUser={() => {
                 updateUser();
               }}
@@ -90,6 +95,7 @@ export default function Account(props: any) {
               bannerImage={bannerImage}
             />
             <div className="education">
+              <h1 className="font-bold text-4xl pt-5 pl-1">Education</h1>
               {userObject.education.length > 0 ? (
                 userObject.education.map((education) => {
                   return (
@@ -109,9 +115,9 @@ export default function Account(props: any) {
               <AddEducation currentUser={currentUser} userObject={userObject} />
             </div>
             <div className="experience">
+              <h1 className="font-bold text-4xl pt-5 pl-1">Past Experience</h1>
               {userObject.pastExperience.length > 0 ? (
                 userObject.pastExperience.map((experience) => {
-                  console.log(experience);
                   return (
                     <ExperienceCard
                       key={experience.jobName}
@@ -135,9 +141,28 @@ export default function Account(props: any) {
             <div className="posts">
               <div className="posts-header">
                 <h1 className="text-3xl font-bold">Posts</h1>
-                <button className="btn btn-success">Create Post</button>
+                {!showPostFields ? (
+                  <button
+                    className="btn btn-success"
+                    onClick={() => {
+                      setShowPostFields(!showPostFields);
+                    }}
+                  >
+                    Create Post
+                  </button>
+                ) : (
+                  <></>
+                )}
               </div>
               <div className="posts-list">
+                <AddPost
+                  changeStatus={() => {
+                    setShowPostFields(!showPostFields);
+                  }}
+                  currentUser={currentUser}
+                  userObject={userObject}
+                  showFields={showPostFields}
+                />
                 {userObject.posts.length > 0 ? (
                   userObject.posts.map((post) => {
                     return (
@@ -145,6 +170,7 @@ export default function Account(props: any) {
                         postTitle={post.title}
                         postDesc={post.description}
                         attachments={post.attachments}
+                        key={post.title}
                       />
                     );
                   })

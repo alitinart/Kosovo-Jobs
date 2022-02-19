@@ -2,5 +2,23 @@
   background-color: #393947;
   margin-left: 10px;
   border-radius: 10px;
+  height: fit-content;
   padding: 15px;
+}
+.social-card {
+  text-align: center;
+  display: inline-block;
+  padding: 20px;
+  border-radius: 10px;
+  transition: 0.5s;
+  margin: 5px;
+  img {
+    height: 200px;
+    border-radius: 10px;
+    display: block;
+    margin: 0 auto 20px auto;
+  }
+  &:hover {
+    transform: scale(1.03);
+  }
 }

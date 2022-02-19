@@ -153,6 +153,12 @@
   margin-left: 10px;
 }
 
+.post-card {
+  background-color: #4f4f5f;
+  padding: 10px;
+  border-radius: 10px;
+}
+
 .hover-pointer {
   -webkit-transition: 0.5s;
   transition: 0.5s;
@@ -228,6 +234,12 @@
 @media screen and (max-width: 638px) {
   .account {
     margin: 0 25px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .socials {
+    margin: 20px 0 !important;
   }
 }
 /*# sourceMappingURL=Account.css.map */

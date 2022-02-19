@@ -1,0 +1,98 @@
+.search {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.609);
+  z-index: 200;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.search-input {
+  background-color: #0c0c0f;
+  border-radius: 10px;
+  padding: 40px;
+}
+
+.close-search {
+  position: absolute;
+  background-color: white;
+  color: black;
+  padding: 0 10px;
+  border-radius: 10px;
+  top: 0;
+  right: 0;
+  margin: 20px;
+  font-size: 40px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.close-search:hover {
+  -webkit-transform: scale(1.08);
+          transform: scale(1.08);
+}
+
+.loader-container {
+  height: calc(100vh - 195px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.search-card {
+  background-color: #343446;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 0 10px;
+}
+
+.search-card .main-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.search-card .profile-image {
+  width: 125px;
+  height: 125px;
+  display: inline-block;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 100%;
+}
+
+.search-card .full-user {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.search-card .full-user .full-name {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.search-card .extra-info {
+  font-weight: bold;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 5px;
+}
+/*# sourceMappingURL=Search.css.map */

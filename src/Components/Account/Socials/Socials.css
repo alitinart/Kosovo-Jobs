@@ -2,6 +2,31 @@
   background-color: #393947;
   margin-left: 10px;
   border-radius: 10px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
   padding: 15px;
+}
+
+.social-card {
+  text-align: center;
+  display: inline-block;
+  padding: 20px;
+  border-radius: 10px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  margin: 5px;
+}
+
+.social-card img {
+  height: 200px;
+  border-radius: 10px;
+  display: block;
+  margin: 0 auto 20px auto;
+}
+
+.social-card:hover {
+  -webkit-transform: scale(1.03);
+          transform: scale(1.03);
 }
 /*# sourceMappingURL=Socials.css.map */

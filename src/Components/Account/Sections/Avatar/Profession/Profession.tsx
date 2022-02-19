@@ -39,7 +39,7 @@ export default function Profession(props: any) {
         !editProfession ? (
           <div onClick={changeEditProfessionStatus}>
             <p style={{ display: "inline" }}>{props.userObject.profession}</p>{" "}
-            <i className="bi bi-pencil edit-pencil"></i>
+            {props.edit ? <i className="bi bi-pencil edit-pencil"></i> : <></>}
             <input style={{ display: "none" }} className="add-info" />
           </div>
         ) : (

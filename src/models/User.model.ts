@@ -3,6 +3,7 @@ import Experience from "./Experience.model";
 import Post from "./Post.model";
 
 export default interface User {
+  username: string;
   email: string;
   fullname: string;
   password: string;
@@ -13,6 +14,12 @@ export default interface User {
   education: Education[];
   posts: Post[];
   pastExperience: Experience[];
-  socials: { name: string; link: string; icon: string }[];
+  accountType: string;
+  socials: {
+    name: string;
+    url: string;
+    socialImage: string;
+    linked: boolean;
+  }[];
   _id: string;
 }

@@ -7,40 +7,21 @@ export default function SignUp() {
   const [hideRetype, setHideRetype] = React.useState("password");
   const [error, setError] = React.useState("");
 
-  let username = "";
-  let email = "";
-  let password = "";
-  let retype = "";
-  let accountType = "";
+  const [username, setUsername] = React.useState("");
+  const [fullname, setFullname] = React.useState("");
+  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
+  const [accountType, setAccountype] = React.useState("");
+
+  const [retype, setRetype] = React.useState("");
 
   const nav = useNavigate();
-
-  const onChange = (event: any, field: string) => {
-    switch (field) {
-      case "username":
-        username = event.target.value;
-        break;
-      case "email":
-        email = event.target.value;
-        break;
-      case "password":
-        password = event.target.value;
-        break;
-      case "accountType":
-        accountType = event.target.value;
-        break;
-      case "retype":
-        retype = event.target.value;
-        break;
-      default:
-        alert("Error Occurred");
-    }
-  };
 
   const signUp = (event: any) => {
     event.preventDefault();
     const data = {
       username: username,
+      fullname: fullname,
       email: email,
       password: password,
       accountType: accountType,
@@ -98,18 +79,29 @@ export default function SignUp() {
         <h1 className="text-6xl font-bold text-center mb-5">Sign Up</h1>
         <input
           type={"text"}
-          placeholder="Full Name"
+          placeholder="Username"
+          value={username}
           required
           onChange={(event) => {
-            onChange(event, "username");
+            setUsername(event.target.value);
+          }}
+        />
+        <input
+          type={"text"}
+          placeholder="Full Name"
+          value={fullname}
+          required
+          onChange={(event) => {
+            setFullname(event.target.value);
           }}
         />
         <input
           type={"email"}
           placeholder="Email"
+          value={email}
           required
           onChange={(event) => {
-            onChange(event, "email");
+            setEmail(event.target.value);
           }}
         />
         <div className="form-password">
@@ -117,8 +109,9 @@ export default function SignUp() {
             type={hidePassword}
             className="form-control password-field"
             placeholder="Password"
+            value={password}
             onChange={(event) => {
-              onChange(event, "password");
+              setPassword(event.target.value);
             }}
             required
           />
@@ -140,7 +133,7 @@ export default function SignUp() {
             placeholder="Retype Password"
             required
             onChange={(event) => {
-              onChange(event, "retype");
+              setRetype(event.target.value);
             }}
           />
           <div className="status-button">
@@ -158,7 +151,7 @@ export default function SignUp() {
           className="form-control"
           required
           onChange={(event) => {
-            onChange(event, "accountType");
+            setAccountype(event.target.value);
           }}
         >
           <option value={"business"}>Business</option>

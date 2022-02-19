@@ -12,14 +12,18 @@ export default function Avatar(props: any) {
           backgroundImage: "url(" + props.bannerImage + ")",
         }}
       >
-        <div
-          className="edit"
-          onClick={() => {
-            props.uploadType("Banner");
-          }}
-        >
-          <i className="bi bi-pencil"></i>
-        </div>
+        {props.edit ? (
+          <div
+            className="edit"
+            onClick={() => {
+              props.uploadType("Banner");
+            }}
+          >
+            <i className="bi bi-pencil"></i>
+          </div>
+        ) : (
+          <></>
+        )}
       </div>
       <div className="user-info">
         <div className="avatar">
@@ -29,20 +33,25 @@ export default function Avatar(props: any) {
               backgroundImage: "url(" + props.userPfp + ")",
             }}
           >
-            <div
-              className="edit-pfp"
-              onClick={() => {
-                props.uploadType("Profile Photo");
-              }}
-            >
-              <i className="bi bi-pencil"></i>
-            </div>
+            {props.edit ? (
+              <div
+                className="edit-pfp"
+                onClick={() => {
+                  props.uploadType("Profile Photo");
+                }}
+              >
+                <i className="bi bi-pencil"></i>
+              </div>
+            ) : (
+              <></>
+            )}
           </div>
           <h1 className="full-name">
             {props.userObject.fullname}
             <Profession
               userObject={props.userObject}
               currentUser={props.currentUser}
+              edit={props.edit}
               updateUser={() => {
                 props.updateUser();
               }}
@@ -52,6 +61,7 @@ export default function Avatar(props: any) {
         <Bio
           userObject={props.userObject}
           currentUser={props.currentUser}
+          edit={props.edit}
           updateUser={() => {
             props.updateUser();
           }}

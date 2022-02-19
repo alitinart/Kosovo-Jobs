@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { Fragment } from "react";
 import { Popover, Transition } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
+import axios from "axios";
 const Logo = require("../../../Assets/Logo.png");
 
 export default function Header(props: any) {
@@ -14,9 +15,14 @@ export default function Header(props: any) {
   );
 
   const logOutHandler = () => {
-    localStorage.removeItem("currentUser");
-    setCurrentUser("");
-    nav("/auth/login");
+    axios
+      .delete(`http://localhost:8000/tokens/${localStorage.getItem("tokenId")}`)
+      .then((resData) => {
+        localStorage.removeItem("currentUser");
+        localStorage.removeItem("tokenId");
+        setCurrentUser("");
+        nav("/auth/login");
+      });
   };
 
   return (
@@ -52,17 +58,22 @@ export default function Header(props: any) {
               </Link>
 
               {currentUser ? (
-                <Link
-                  to={"/account"}
-                  className="text-base font-medium text-white scale-up"
-                >
-                  Your Account
-                </Link>
+                <div>
+                  <Link
+                    to={"/account"}
+                    className="text-base font-medium text-white scale-up"
+                  >
+                    Your Account
+                  </Link>
+                </div>
               ) : (
                 <></>
               )}
             </Popover.Group>
             <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
+              <button className="btn" onClick={props.searchHandler}>
+                Search <i className="bi bi-search ml-1"></i>
+              </button>
               {currentUser ? (
                 <button
                   onClick={logOutHandler}
@@ -160,6 +171,9 @@ export default function Header(props: any) {
                   ) : (
                     <></>
                   )}
+                  <button className="btn w-full" onClick={props.searchHandler}>
+                    Search <i className="bi bi-search ml-1"></i>
+                  </button>
                   {!currentUser ? (
                     <div>
                       <Link

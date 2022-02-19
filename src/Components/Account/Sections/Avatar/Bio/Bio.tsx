@@ -27,9 +27,15 @@ export default function Bio(props: any) {
         }
       )
       .then((resData) => {
-        localStorage.removeItem("currentUser");
-        localStorage.setItem("currentUser", resData.data);
-        props.updateUser();
+        axios
+          .post("http://localhost:8000/tokens/", {
+            token: props.currentUser,
+            userId: props.userObject._id,
+          })
+          .then((resData) => {
+            localStorage.setItem("currentUser", resData.data);
+            props.updateUser();
+          });
       });
   };
 
@@ -39,10 +45,14 @@ export default function Bio(props: any) {
         !editBio ? (
           <div>
             <p className="bio-text">{props.userObject.bio}</p>{" "}
-            <i
-              className="bi bi-pencil edit-pencil"
-              onClick={changeEditBioStatus}
-            ></i>
+            {props.edit ? (
+              <i
+                className="bi bi-pencil edit-pencil"
+                onClick={changeEditBioStatus}
+              ></i>
+            ) : (
+              <></>
+            )}
           </div>
         ) : (
           <div>
@@ -66,7 +76,11 @@ export default function Bio(props: any) {
       ) : !editBio ? (
         <div>
           <p style={{ display: "inline" }}>Add Bio</p>
-          <i className="ml-2 bi bi-pencil" onClick={changeEditBioStatus}></i>
+          {props.edit ? (
+            <i className="ml-2 bi bi-pencil" onClick={changeEditBioStatus}></i>
+          ) : (
+            <></>
+          )}
         </div>
       ) : (
         <div>

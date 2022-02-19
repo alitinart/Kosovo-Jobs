@@ -60,6 +60,7 @@ export default function Login() {
           setError("No User Found with that email");
           return;
         }
+        localStorage.setItem("tokenId", resData.data.refreshTokenId);
         localStorage.setItem("currentUser", resData.data.accessToken);
         window.location.href = "/";
       });
